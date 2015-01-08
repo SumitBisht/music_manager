@@ -1,0 +1,34 @@
+{
+  "name": "music_manager",
+  "version": "0.0.0",
+  "description": "music and metadata capture and management app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/sumitbisht/music_manager"
+  },
+  "keywords": [
+    "recording",
+    "audio",
+    "webrtc",
+    "music",
+    "metadata"
+  ],
+  "author": "sumit bisht",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sumitbisht/music_manager/issues"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "dependencies":{
+    "express": "4.10.7",
+    "socket.io": "0.9.*"
+  },
+  "homepage": "https://github.com/sumitbisht/music_manager"
+}
+
