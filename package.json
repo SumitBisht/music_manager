@@ -2,13 +2,25 @@
   "name": "music_manager",
   "version": "0.0.0",
   "description": "music and metadata capture and management app",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "test"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
     "url": "http://github.com/sumitbisht/music_manager"
+  },
+  "dependencies": {
+    "express": "~4.10.6",
+    "body-parser": "~1.10.1",
+    "cookie-parser": "~1.3.3",
+    "morgan": "~1.5.1",
+    "serve-favicon": "~2.2.0",
+    "debug": "~2.1.1",
+    "ejs": "*",
+    "request": "~2.51.0",
+    "icecast-stack": "~0.3.0",
+    "icecast": "~1.3.1"
   },
   "keywords": [
     "recording",
@@ -25,10 +37,5 @@
   "engines": {
     "node": ">=0.6"
   },
-  "dependencies":{
-    "express": "4.10.7",
-    "socket.io": "0.9.*"
-  },
   "homepage": "https://github.com/sumitbisht/music_manager"
 }
-

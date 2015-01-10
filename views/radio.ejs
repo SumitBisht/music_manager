@@ -1,0 +1,22 @@
+<%include header%>
+<script type="text/javascript" src="javascripts/UrlMetadataResolver.js"></script>
+<script type="text/javascript" src="javascripts/jquery/jquery-1.7.2.min.js"></script>
+<p><%=title%></p>
+
+<div id="streamingurlselector">
+  <div id="streamSelector">
+    <table>
+     <tr>
+       <td>Stream URL</td>
+       <td><input type="text" name="URL" id="url" default="http://streaming207.radionomy.com:80/MUSICK4U" />
+     </tr>
+     <tr>
+       <td colspan=2 align="center"><button name="GetMetaData" onClick="getMetaData()">Start getting song Metadata from URL</button></td>
+     </tr>
+    </table>
+  </div>
+  <div id="metadataDisplayer">
+    <h2 id="resultingMetaData"></h2>
+  </div>
+</div>
+<%include footer%>
