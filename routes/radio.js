@@ -13,15 +13,26 @@ router.get('/', function(req, res) {
 router.post('/url', function(req, res){
 	var url = req.body.choice;
 	console.log(url);
+	try{
 	icecast.get(url, function(strm){
 		console.log(JSON.stringify(strm.headers));
 
 		strm.on('metadata', function(metadata){
 			var data = icecast.parse(metadata);
 			console.log('Song: '+data.StreamTitle);
-			res.send('Song found: '+data.StreamTitle);
+			res.send('Currently Playing song: '+data.StreamTitle);
+		});
+		strm.on('error', function(err){
+			res.send('error');
 		});
 	});
+	}catch(err){
+		res.send('Error occured: '+err);
+	}
+});
+
+router.get('/audioplayer', function(req, res){
+	res.render('player');
 });
 
 module.exports = router;
