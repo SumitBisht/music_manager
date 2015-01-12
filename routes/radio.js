@@ -15,12 +15,25 @@ router.post('/url', function(req, res){
 	console.log(url);
 	try{
 	icecast.get(url, function(strm){
-		console.log(JSON.stringify(strm.headers));
+		var headers = strm.headers;
+		// console.log(JSON.stringify(headers));
+		console.log('content-type '+headers['content-type']);
+		console.log('description '+headers['icy-description']);
+		console.log('genre '+headers['icy-genre']);
+		console.log('name '+headers['icy-name']);
+		console.log('server '+headers['server']);
 
 		strm.on('metadata', function(metadata){
 			var data = icecast.parse(metadata);
 			console.log('Song: '+data.StreamTitle);
-			res.send('Currently Playing song: '+data.StreamTitle);
+			var info = {};
+			info['song'] = data.StreamTitle;
+			info['content-type'] = headers['content-type'];
+			info['name'] = headers['icy-name'];
+			info['genre'] = headers['icy-genre'];
+			info['description'] = headers['icy-description'];
+			info['server'] = headers['server'];
+			res.send(info);
 		});
 		strm.on('error', function(err){
 			res.send('error');
