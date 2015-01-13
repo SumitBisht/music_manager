@@ -6,7 +6,7 @@ var startTheData = function(){
 var getMetaData = function(){
 	var url = document.getElementsByName("URL")[0].value;
 	var millis = (new Date().getTime()).toString();
-	var serverURL = server + 'radio/url';
+	var serverURL = server + 'url';
 	// url = serverURL + url;
 	console.log('POST URL: '+serverURL);
 
