@@ -1,0 +1,26 @@
+<%include header%>
+
+	<p>List of saved data</p>
+	<table class='table-bordered'>
+	    <th> User Agent </th>
+	    <th> Server Details </th>
+	    <th> Server Description </th>
+	    <th> Genre </th>
+	    <th> Name </th>
+	    <th> Content Type </th>
+	    <th> Song Name </th>
+	    <th> Creation Date </th>
+	  <% rows.forEach(function(row) { %>
+	  <tr>
+	    <td> <%=row.userAgent%> </td>
+	    <td> <%=row.server%> </td>
+	    <td> <%=row.description%> </td>
+	    <td> <%=row.genre%> </td>
+	    <td> <%=row.name%> </td>
+	    <td> <%=row.contentType%> </td>
+	    <td> <%=row.song%> </td>
+	    <td> <%=row.create%> </td>
+	  </tr>
+	  <% }); %>
+	</table>
+<%include footer%>

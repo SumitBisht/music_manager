@@ -36,4 +36,15 @@ router.post('/saveInfo', function(req, res) {
   res.send('saveInfo completed..');
 });
 
+router.get('/list', function(req, res){
+	Music.find({}, function (err, docs) {
+		if(docs){
+			res.render('data-list', {title: 'List of all Data', rows: docs});
+		}
+		if(err){
+			res.render('error', {message:'Unable to list', error:err});
+		}
+	});
+});
+
 module.exports = router;
