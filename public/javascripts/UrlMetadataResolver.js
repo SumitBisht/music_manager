@@ -13,7 +13,7 @@ var getMetaData = function(){
 	 $.ajax({
         url: serverURL,
         type: 'POST',
-        // timeout: 15000,
+        timeout: 15000,
         data: {choice: url},
         cache: false,
         success: function(result) {

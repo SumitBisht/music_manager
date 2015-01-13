@@ -1,7 +1,16 @@
+var domain = require('domain');
 var express = require('express');
 // var request = require('request');
 var router = express.Router();
 var icecast = require("icecast");
+
+
+d = domain.create();
+
+d.on('error', function(err) {
+  console.error('Uncaught error >>>  '+err);
+});
+
 
 /* GET the radio listing. */
 router.get('/', function(req, res) {
@@ -11,9 +20,9 @@ router.get('/', function(req, res) {
 
 /* Process the internet audio stream */
 router.post('/url', function(req, res){
+	d.run(function(){
 	var url = req.body.choice;
 	console.log(url);
-	try{
 	icecast.get(url, function(strm){
 		var headers = strm.headers;
 		// console.log(JSON.stringify(headers));
@@ -39,9 +48,7 @@ router.post('/url', function(req, res){
 			res.send('error');
 		});
 	});
-	}catch(err){
-		res.send('Error occured: '+err);
-	}
+	});
 });
 
 router.get('/audioplayer', function(req, res){
