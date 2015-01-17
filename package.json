@@ -19,7 +19,6 @@
     "debug": "~2.1.1",
     "ejs": "*",
     "request": "~2.51.0",
-    "icecast-stack": "~0.3.0",
     "icecast": "~1.3.1",
     "mongoose": "~3.8.21"
   },
