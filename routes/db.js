@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var config = require('../config');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/music');
+var serverUrl = 'mongodb://'+config.user+':'+config.pwd+'@'+config.host+':'+config.port+'/'+config.name;
+mongoose.connect(serverUrl);
 
 var Schema = mongoose.Schema;
 var musicSchema = new Schema({
