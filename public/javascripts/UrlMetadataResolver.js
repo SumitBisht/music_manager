@@ -1,5 +1,11 @@
-var server = 'http://localhost:3000/';
+var server = 'http://music-manager-sumitbisht.c9.io/';
 var lastSong = null;
+
+
+$( document ).ready(function() {
+    $('#url').val('http://streaming207.radionomy.com:80/MUSICK4U');
+});
+
 var startTheData = function(){
 	setInterval(function(){ getMetaData()}, 60000);
 };
